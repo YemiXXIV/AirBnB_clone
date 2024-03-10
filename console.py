@@ -120,7 +120,7 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             args[1] = args[1].replace('"', '') \
-                    if args[1][0] == '"' else args[1]
+                if args[1][0] == '"' else args[1]
             classname_id = args[0] + "." + args[1]
             if classname_id not in objs.keys():
                 print("** no instance found **")
@@ -136,9 +136,9 @@ class HBNBCommand(cmd.Cmd):
                     setattr(obj, args[2], str(args[3][1:-1]))
                 elif args[3].startswith('"') and not args[3].endswith('"') or \
                      args[3].startswith("'") and not args[3].endswith("'"):
-                    str_value = ""
+                    str_val = ""
                     for arg in args[3:]:
-                        str_value += " " + arg
+                        str_val += " " + arg
                         if arg.endswith('"') or arg.endswith("'"):
                             break
                         setattr(obj, args[2], str(str_value[2:-1]))
