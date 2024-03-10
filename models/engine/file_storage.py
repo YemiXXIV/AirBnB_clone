@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+
 """
+
 This module defines a class that serializes and deserializes
 JSON data
+
 """
 import json
 from os import path
@@ -11,6 +14,7 @@ class FileStorage:
     """
     Methods for JSON data serialization and deserialization
     """
+
     __file_path = "file.json"
     __objects = {}
 

@@ -1,7 +1,10 @@
 #!/usr/bin/python3
+
 """
+
 BaseModel module that defines all common methods
 for the AirBnb clone project
+
 """
 import uuid
 from datetime import datetime
