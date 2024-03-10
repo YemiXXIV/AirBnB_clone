@@ -9,7 +9,6 @@ JSON data
 import json
 from os import path
 
-
 class FileStorage:
     """
     Methods for JSON data serialization and deserialization
