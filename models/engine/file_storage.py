@@ -20,18 +20,12 @@ class FileStorage():
     def all(self):
         """
         Gets dictionary of objects
-
-        Return:
-            dict: dictionary of objects
         """
         return (FileStorage.__objects)
 
     def new(self, obj):
         """
         Adds an object to a dictionary
-
-        Args:
-            obj (object): the object to be added
         """
         classname_id = type(obj).__name__ + "." + str(obj.id)
         FileStorage.__objects[classname_id] = obj
