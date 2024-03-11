@@ -7,10 +7,13 @@ from models.base_model import BaseModel
 
 
 class User(BaseModel):
+    """Class for User
+    Arguments:
+        email (str)
+        password (str)
+        first_name (str)
+        last_name (str)
     """
-    User class that inherits from BaseModel
-    """
-
     email = ""
     password = ""
     first_name = ""

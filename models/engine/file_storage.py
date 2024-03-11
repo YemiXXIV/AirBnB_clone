@@ -9,6 +9,7 @@ JSON data
 import json
 from os import path
 
+
 class FileStorage:
     """
     Methods for JSON data serialization and deserialization
@@ -45,11 +46,12 @@ class FileStorage:
         Reload dictionary of objects from a file
         """
         if path.isfile(FileStorage.__file_path):
+            obj_dict = {}
             with open(FileStorage.__file_path, 'r') as file:
-                obj_dict = json.load(file)
-                for key, value in obj_dict.items():
-                    class_name = value['__class__']
-                    module_name = 'models.base_model'
-                    module = __import__(module_name, fromlist=[class_name])
-                    class_obj = getattr(module, class_name)
-                    FileStorage.__objects[key] = class_obj(**value)
+                obj_dict = json.loads(file.read())
+            from models.base_model import BaseModel
+            from models.user import User
+            for key, value in obj_dict.items():
+                class_name = value["__class__"]
+                del value["__class__"]
+                FileStorage.__objects[key] = eval(class_name + "(**value)")
