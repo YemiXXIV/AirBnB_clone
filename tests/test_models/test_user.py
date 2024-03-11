@@ -53,7 +53,7 @@ class TestUser(TestCase):
         tmp_kwgs = User(name='Mustapha', age=24, time='now')
         no_list_kwgs = []
         check_list_kwgs = [
-            'name', 'age', 'time', '__class__'
+            'name', 'age', 'time', '__class__',
                 ]
         for key in tmp_kwgs.to_dict():
             no_list_kwgs.append(key)
@@ -80,7 +80,7 @@ class TestUser(TestCase):
         tmp_args_kwargs = User("every", "new", 23, name="Mustapha", age=20)
         list_ak = []
         check_list = [
-            'name', 'age', '__class__'
+            'name', 'age', '__class__',
                 ]
         for key in tmp_args_kwargs.to_dict():
             list_ak.append(key)
