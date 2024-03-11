@@ -10,6 +10,11 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.state import State
+from models.place import Place
+from models.city import City
+from models.review import Review
 from models.engine.file_storage import FileStorage
 
 
@@ -21,7 +26,8 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb) "
 
     classes = [
-        "BaseModel", 'User'
+        "BaseModel", "User", "State", "Amenity",
+        "Place", "City", "Review" 
     ]
 
 
@@ -39,6 +45,16 @@ class HBNBCommand(cmd.Cmd):
                 base = BaseModel()
             elif args[0] == "User":
                 base = User()
+            elif args[0] == "State":
+                base = State()
+            elif args[0] == "Amenity":
+                base = Amenity()
+            elif args[0] == "Place":
+                base = Place()
+            elif args[0] == "City":
+                base = City()
+            elif args[0] == "Review":
+                base = Review()
             print(base.id)
             storage.save()
 
