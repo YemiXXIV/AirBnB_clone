@@ -3,10 +3,6 @@
 """
 Unittest for state.py
 """
-
-#!/usr/bin/python3
-"""Test module for state class"""
-
 import models
 import unittest
 from datetime import datetime
@@ -22,7 +18,6 @@ class TestState_instantiation(unittest.TestCase):
 
     def test_new_instance_stored_in_objects(self):
         self.assertIn(State(), models.storage.all().values())
-
 
 
 if __name__ == "__main__":

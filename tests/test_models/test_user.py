@@ -48,6 +48,6 @@ class TestUser(TestCase):
     def test_to_dict(self):
         self.assertTrue('to_dict' in dir(self.user))
 
-        
+
 if __name__ == "__main__":
     unittest.main()

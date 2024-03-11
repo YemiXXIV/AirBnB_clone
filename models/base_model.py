@@ -25,10 +25,12 @@ class BaseModel:
             self.updated_at = datetime.now()
             for arg in kwargs:
                 if arg == "created_at":
-                    val = datetime.strptime(kwargs[arg], '%Y-%m-%dT%H:%M:%S.%f')
+                    val = datetime.strptime(kwargs[arg],
+                                            '%Y-%m-%dT%H:%M:%S.%f')
                     self.created_at = val
                 elif arg == "updated_at":
-                    val = datetime.strptime(kwargs[arg], '%Y-%m-%dT%H:%M:%S.%f')
+                    val = datetime.strptime(kwargs[arg],
+                                            '%Y-%m-%dT%H:%M:%S.%f')
                     self.updated_at = val
                 elif arg != "__class__":
                     setattr(self, arg, kwargs[arg])
@@ -37,7 +39,7 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
             storage.new(self)
-            
+
     def __str__(self):
         """
         Return string representation of basemodel instance
@@ -61,8 +63,9 @@ class BaseModel:
         serializable with JSON
         """
         obj_dict = {
-            key: value if key != 'created_at' and key != 'updated_at' else value.isoformat()
+            key: value if key != 'created_at' and key !=
+            'updated_at' else value.isoformat()
             for key, value in self.__dict__.items()
-    }
+        }
         obj_dict["__class__"] = type(self).__name__
         return obj_dict
