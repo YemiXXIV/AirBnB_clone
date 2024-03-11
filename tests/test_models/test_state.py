@@ -3,21 +3,27 @@
 """
 Unittest for state.py
 """
+
+#!/usr/bin/python3
+"""Test module for state class"""
+
+import models
 import unittest
-from models.engine.file_storage import FileStorage
+from datetime import datetime
+from models.state import State
+from models.base_model import BaseModel
 
 
-class TestState(unittest.TestCase):
-    """
-    Test case for State class
-    """
-    def test_state_obj(self):
-        """
-        Test if State object can be created
-        """
-        from models.state import State
-        obj = State()
-        self.assertEqual(obj.name, "")
+class TestState_instantiation(unittest.TestCase):
+    """Unittests for testing instantiation of the State class."""
+
+    def test_no_args_instantiates(self):
+        self.assertEqual(State, type(State()))
+
+    def test_new_instance_stored_in_objects(self):
+        self.assertIn(State(), models.storage.all().values())
+
+
 
 if __name__ == "__main__":
     unittest.main()
