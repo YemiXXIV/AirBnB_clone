@@ -51,6 +51,11 @@ class FileStorage:
                 obj_dict = json.loads(file.read())
             from models.base_model import BaseModel
             from models.user import User
+            from models.amenity import Amenity
+            from modles.review import Review
+            from models.city import City
+            from models.place import Place
+            from models.state import State
             for key, value in obj_dict.items():
                 class_name = value["__class__"]
                 del value["__class__"]
