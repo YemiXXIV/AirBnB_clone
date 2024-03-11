@@ -18,3 +18,6 @@ class TestState(unittest.TestCase):
         from models.state import State
         obj = State()
         self.assertEqual(obj.name, "")
+
+if __name__ == "__main__":
+    unittest.main()
