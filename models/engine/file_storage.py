@@ -34,9 +34,9 @@ class FileStorage():
         """
         Saves dict of objects to a file
         """
-        obj_dict = {}
+        obj_dictionary = {}
         for key, value in FileStorage.__objects.items():
-            obj_dict[key] = value.to_dict()
+            obj_dictionary[key] = value.to_dict()
         with open(FileStorage.__file_path, "w") as file:
             file.write(json.dumps(obj_dict))
 
@@ -45,9 +45,9 @@ class FileStorage():
         Reloads the dict of objects from a file
         """
         if path.isfile(FileStorage.__file_path):
-            dict_obj = {}
+            obj_dictionary = {}
             with open(FileStorage.__file_path, "r") as file:
-                dict_obj = json.loads(file.read())
+                obj_dictionary = json.loads(file.read())
             from models.base_model import BaseModel
             from models.user import User
             from models.state import State
