@@ -45,9 +45,9 @@ class FileStorage():
         Reloads the dict of objects from a file
         """
         if path.isfile(FileStorage.__file_path):
-            obj_dict = {}
+            dict_obj = {}
             with open(FileStorage.__file_path, "r") as file:
-                obj_dict = json.loads(file.read())
+                dict_obj = json.loads(file.read())
             from models.base_model import BaseModel
             from models.user import User
             from models.state import State
