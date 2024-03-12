@@ -37,7 +37,7 @@ class FileStorage():
         obj_dictionary = {}
         for key, value in FileStorage.__objects.items():
             obj_dictionary[key] = value.to_dict()
-        with open(FileStorage.__file_path, 'w') as file:
+        with open(FileStorage.__file_path, "w") as file:
             file.write(json.dumps(obj_dict))
 
     def reload(self):
@@ -46,7 +46,7 @@ class FileStorage():
         """
         if path.isfile(FileStorage.__file_path):
             obj_dictionary = {}
-            with open(FileStorage.__file_path, 'r') as file:
+            with open(FileStorage.__file_path, "r") as file:
                 obj_dictionary = json.loads(file.read())
             from models.base_model import BaseModel
             from models.user import User
