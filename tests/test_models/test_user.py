@@ -35,12 +35,21 @@ class TestUser(unittest.TestCase):
         self.assertTrue(issubclass(type(user), BaseModel))
 
     def test_type(self):
+        """
+        Test type of user class
+        """
         self.assertEqual(type(User()), User)
 
     def test_new_instance_stored_in_objects(self):
+        """
+        Test new instance stored
+        """
         self.assertIn(User(), storage.all().values())
 
     def test_attrs(self):
+        """
+        Test attributes
+        """
         self.assertTrue('id' in self.user.__dict__)
         self.assertTrue('email' in self.user.__dict__)
         self.assertTrue('first_name' in self.user.__dict__)
@@ -50,9 +59,15 @@ class TestUser(unittest.TestCase):
         self.assertTrue('updated_at' in self.user.__dict__)
 
     def test_to_dict(self):
+        """
+        Test user to dict
+        """
         self.assertTrue('to_dict' in dir(self.user))
 
     def test_save(self):
+        """
+        Test save method
+        """
         self.user.save()
         self.assertNotEqual(self.user.created_at, self.user.updated_at)
 
