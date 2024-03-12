@@ -38,7 +38,7 @@ class FileStorage():
         for key, value in FileStorage.__objects.items():
             obj_dictionary[key] = value.to_dict()
         with open(FileStorage.__file_path, "w") as file:
-            file.write(json.dumps(obj_dict))
+            file.write(json.dumps(obj_dictionary))
 
     def reload(self):
         """
@@ -47,7 +47,7 @@ class FileStorage():
         if path.isfile(FileStorage.__file_path):
             obj_dictionary = {}
             with open(FileStorage.__file_path, "r") as file:
-                obj_dictionary = json.loads(file.read())
+                obj_dictioanry = json.loads(file.read())
             from models.base_model import BaseModel
             from models.user import User
             from models.state import State
@@ -55,7 +55,7 @@ class FileStorage():
             from models.place import Place
             from models.city import City
             from models.review import Review
-            for key, value in obj_dict.items():
+            for key, value in obj_dictionary.items():
                 class_name = value["__class__"]
                 del value["__class__"]
                 FileStorage.__objects[key] = eval(class_name + "(**value)")
