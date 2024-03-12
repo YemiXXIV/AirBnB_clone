@@ -68,4 +68,4 @@ class BaseModel:
             for key, value in self.__dict__.items()
         }
         obj_dictionary["__class__"] = type(self).__name__
-        return obj_dict
+        return obj_dictionary
