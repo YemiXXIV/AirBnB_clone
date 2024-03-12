@@ -12,42 +12,42 @@ from os import path
 
 class FileStorage():
     """
-    Provides methods for data serialization and deserialization
+    Methods for data serialization, deserialization and storage
     """
     __file_path = "file.json"
     __objects = {}
 
     def all(self):
         """
-        Gets dictionary of objects
+        Gets the dictionary of objects
         """
         return (FileStorage.__objects)
 
     def new(self, obj):
         """
-        Adds an object to a dictionary
+        Add an object to a dictionary
         """
         classname_id = type(obj).__name__ + "." + str(obj.id)
         FileStorage.__objects[classname_id] = obj
 
     def save(self):
         """
-        Saves dictionary of objects to a file
+        Saves dict of objects to a file
         """
-        obj_dict = {}
+        obj_dictionary = {}
         for key, value in FileStorage.__objects.items():
-            obj_dict[key] = value.to_dict()
-        with open(FileStorage.__file_path, mode="w") as file:
+            obj_dictionary[key] = value.to_dict()
+        with open(FileStorage.__file_path, 'w') as file:
             file.write(json.dumps(obj_dict))
 
     def reload(self):
         """
-        Reloads dictionary of objects from a file
+        Reloads the dict of objects from a file
         """
         if path.isfile(FileStorage.__file_path):
-            obj_dict = {}
-            with open(FileStorage.__file_path, mode="r") as file:
-                obj_dict = json.loads(file.read())
+            obj_dictionary = {}
+            with open(FileStorage.__file_path, 'r') as file:
+                obj_dictionary = json.loads(file.read())
             from models.base_model import BaseModel
             from models.user import User
             from models.state import State
