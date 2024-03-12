@@ -62,10 +62,10 @@ class BaseModel:
         Returns the dict representation of the object to be
         serializable with JSON
         """
-        obj_dictionary = {
+        obj_dict = {
             key: value if key != 'created_at' and key !=
             'updated_at' else value.isoformat()
             for key, value in self.__dict__.items()
         }
-        obj_dictionary["__class__"] = type(self).__name__
-        return obj_dictionary
+        obj_dict["__class__"] = type(self).__name__
+        return obj_dict
